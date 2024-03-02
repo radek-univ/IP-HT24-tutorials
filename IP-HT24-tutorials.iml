@@ -4,11 +4,11 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Tutorial5/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/Tutorial5A/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/Tutorial5B/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/Tutorial5C/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/other" />
+      <excludeFolder url="file://$MODULE_DIR$/src/other/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/other/t4o/other" />
       <excludeFolder url="file://$MODULE_DIR$/src/other/t4o/other/Question1Variants" />
       <excludeFolder url="file://$MODULE_DIR$/src/other/t4o/other/RayTracer" />
