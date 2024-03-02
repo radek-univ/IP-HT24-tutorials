@@ -37,10 +37,10 @@ object Question5 {
   def testFib(f: Int => BigInt = fastestFib, fName: String = "fastestFib"): Unit = {
     for (n <- 0 to 4500000 by 1) {
       val startTime = System.nanoTime()
-      val res = f(n)
+      f(n)
       val endTime = System.nanoTime()
       val time = (endTime - startTime) / 1e9d
-      println(s"It took ${time} seconds to compute $fName(${n}).")
+      println(s"It took $time seconds to compute $fName($n).")
       println("█" * (time * 20).ceil.toInt)
     }
   }
