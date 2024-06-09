@@ -46,11 +46,15 @@ object Problem4 {
   //     absFun: TreeDisjointIntervalSet --> 𝒫( Intervals )
   //     and is defined as:
   //     absFun(obj) = { (n.interval.from, n.interval.to) | n ∈ T(obj.root) }
-  //         where T(n) is the tree equivalent of the L function
-  //         for linked lists, which collects the nodes of the tree:
+  //         where T(n) is the tree equivalent of the L function for linked lists,
+  //         which collects the nodes of the tree in an "in-order" fashion:
   //             T: Node --> [Node]
   //             T(null) = []
   //             T(n) = T(n.left) ++ [n] ++ T(n.right)
+  // Datatype invariant:
+  //   ∙ Intervals in the tree are sorted:
+  //     [ a | n <- T(root), a <- [n.interval.from, n.interval.to]] is sorted
+  //          we need this to reliably navigate the tree
   class TreeDisjointIntervalSet extends DisjointIntervalSet {
     // Enumeration type with two values: Left and Right.
     // It represents the direction of traversing the tree.
@@ -165,6 +169,5 @@ object Problem4 {
       t.addInterval(i)
       println(t)
     }
-    println(t)
   }
 }
