@@ -75,11 +75,11 @@ object Problem4 {
       // node(Left) = x
       // y = node(Right)
       def apply(dir: Direction): Node = {
-        if (dir == Direction.Left) left else right
+        if (dir == Left) left else right
       }
 
       def update(dir: Direction, node: Node): Unit = {
-        if (dir == Direction.Left) left = node else right = node
+        if (dir == Left) left = node else right = node
       }
     }
 
@@ -89,7 +89,7 @@ object Problem4 {
       if (root == null) { // Special case when the tree is empty.
         root = Node(null, I, null)
       } else {
-        addIntervalHelper(I, root, null, Direction.Left)
+        addIntervalHelper(I, root, null, Left)
       }
     }
 
@@ -98,13 +98,13 @@ object Problem4 {
       if (node == null) { // node is null, add a new node as a child of prevNode
         prevNode(dir) = Node(null, I, null)
       } else if (I <<< node.interval) { // interval I is to the left of current node's interval
-        addIntervalHelper(I, node.left, node, Direction.Left)
+        addIntervalHelper(I, node.left, node, Left)
       } else if (I >>> node.interval) { // symmetrically, I is to the right
-        addIntervalHelper(I, node.right, node, Direction.Right)
+        addIntervalHelper(I, node.right, node, Right)
       } else { // I is not to the left or right, so it intersects with the current interval
         // Delete intervals intersecting with I in the subtrees of node, remembering the extremal values
-        val (leftTree, leftMinVal) = deleteIntersecting(I, node.left, Direction.Left)
-        val (rightTree, rightMaxVal) = deleteIntersecting(I, node.right, Direction.Right)
+        val (leftTree, leftMinVal) = deleteIntersecting(I, node.left, Left)
+        val (rightTree, rightMaxVal) = deleteIntersecting(I, node.right, Right)
         // Use the extremal values to compute the interval to be inserted
         val left = Math.min(leftMinVal, Math.min(I.from, node.interval.from))
         val right = Math.max(rightMaxVal, Math.max(I.to, node.interval.to))
@@ -119,7 +119,7 @@ object Problem4 {
       if (currNode == null) {
         // We have nothing to delete, so we return null, and as the extremal value
         // we return something which will not change the result of min/max up in the tree
-        val extremalValue = if (dir == Direction.Left) Float.PositiveInfinity else Float.NegativeInfinity
+        val extremalValue = if (dir == Left) Float.PositiveInfinity else Float.NegativeInfinity
         (null, extremalValue)
       } else if (currNode.interval.intersects(I)) {
         // Current interval intersects with I, and we came from the direction dir.
