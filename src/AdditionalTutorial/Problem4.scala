@@ -37,7 +37,7 @@ object Problem4 {
 
     // precondition:  none
     // returns Res such that:
-    //     x ∈ Res ∧ Res ∈ S  ∨  Res == null ∧ x ∉ ⋃S
+    //     (x ∈ Res ∧ Res ∈ S  ∨  Res == null ∧ x ∉ ⋃S) ∧ S = S₀
     def getInterval(x: Float): Interval
   }
 
