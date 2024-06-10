@@ -20,7 +20,7 @@ object Problem4 {
 
   // abstract state:
   //     S: 𝒫( Intervals )
-  //     Where Intervals is the set of all open intervals with Float endpoints:
+  //     where Intervals is the set of all open intervals with Float endpoints:
   //       Intervals = { (a, b) ⊆ Float | a,b ∈ Float ∧ a ≤ b }
   // initial:
   //     S₀ = ∅
@@ -42,7 +42,7 @@ object Problem4 {
   }
 
   // Abstraction function:
-  //     It maps concrete implementation to the abstract state:
+  //     It maps the concrete implementation to the abstract state:
   //     absFun: TreeDisjointIntervalSet --> 𝒫( Intervals )
   //     and is defined as:
   //     absFun(obj) = { (n.interval.from, n.interval.to) | n ∈ T(obj.root) }
