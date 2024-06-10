@@ -122,7 +122,7 @@ object Problem4 {
         val extremalValue = if (dir == Left) Float.PositiveInfinity else Float.NegativeInfinity
         (null, extremalValue)
       } else if (currNode.interval.intersects(I)) {
-        // Current interval intersects with I, and we came from the direction dir.
+        // Current interval intersects with I, and the last direction we followed is dir.
         // This means we can discard the subtree currNode(opposite(dir)) and the interval currNode.interval.
         // Therefore, only compute the updatedSubtree based on currNode(dir).
         val (updatedSubtree, value) = deleteIntersecting(I, currNode(dir), dir)
